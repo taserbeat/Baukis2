@@ -14,6 +14,18 @@
             "command": "bundle exec rspec ${input:param1}",
             "problemMatcher": [],
         },
+        {
+            "label": "run production server",
+            "type": "shell",
+            "command": "bin/rails s -e production -p 3001",
+            "problemMatcher": [],
+        },
+        {
+            "label": "precompile assets",
+            "type": "shell",
+            "command": "bin/rails assets:precompile RAILS_ENV=production",
+            "problemMatcher": [],
+        },
     ],
     "inputs": [
         {
