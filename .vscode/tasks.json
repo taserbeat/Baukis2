@@ -1,8 +1,7 @@
 {
     // Run bundle exec rspec
     "version": "2.0.0",
-    "tasks": [
-        {
+    "tasks": [{
             "label": "rspec",
             "type": "shell",
             "command": "bundle exec rspec",
@@ -12,6 +11,12 @@
             "label": "rspec with args",
             "type": "shell",
             "command": "bundle exec rspec ${input:param1}",
+            "problemMatcher": [],
+        },
+        {
+            "label": "run development server",
+            "type": "shell",
+            "command": "bin/rails s",
             "problemMatcher": [],
         },
         {
@@ -27,12 +32,10 @@
             "problemMatcher": [],
         },
     ],
-    "inputs": [
-        {
-            "id": "param1",
-            "description": "rspec args:",
-            "default": "",
-            "type": "promptString",
-        }
-    ]
+    "inputs": [{
+        "id": "param1",
+        "description": "rspec args:",
+        "default": "",
+        "type": "promptString",
+    }]
 }
