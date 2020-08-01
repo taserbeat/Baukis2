@@ -32,10 +32,12 @@ header {
   a {
     float: right;
     color: $very_light_gray;
+    margin-left: $wide;
   }
 
   .button_to {
     float: right;
+    margin-left: $wide;
   }
 }
 
