@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       root 'top#index'
       get 'login' => 'sessions#new', as: :login
       resource :session, only: %i[create destroy]
-      resource :account, expect: %i[new create destroy]
+      resource :account, except: %i[new create destroy]
     end
   end
 
