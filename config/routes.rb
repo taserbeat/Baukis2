@@ -15,7 +15,10 @@ Rails.application.routes.draw do
       root 'top#index'
       get 'login' => 'sessions#new', as: :login
       resource :session, only: %i[create destroy]
-      resources :staff_members
+      resources :staff_members do
+        resources :staff_events, only: %i[index]
+      end
+      resources :staff_events, only: %i[index]
     end
   end
 
