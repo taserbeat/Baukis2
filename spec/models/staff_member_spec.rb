@@ -15,4 +15,31 @@ RSpec.describe StaffMember, type: :model do
       expect(member.hashed_password).to be_nil
     end
   end
+
+  describe '値の正規化' do
+    example 'email前後の空白を削除' do
+      member = create(:staff_member, email: ' test@example.com')
+      expect(member.email).to eq('test@example.com')
+    end
+
+    example 'emailに含まれる全角英数字を半角に変換' do
+      member = create(:staff_member, email: 'ｔｅｓｔ@example.com')
+      expect(member.email).to eq('test@example.com')
+    end
+
+    example 'email前後の全角スペースを除去' do
+      member = create(:staff_member, email: '　test@example.com　')
+      expect(member.email).to eq('test@example.com')
+    end
+
+    example 'family_name_kanaに含まれるひらがなをカタカナに変換' do
+      member = create(:staff_member, family_name_kana: 'りんご')
+      expect(member.family_name_kana).to eq('リンゴ')
+    end
+
+    example 'family_name_kanaに含まれる半角カナを全角カナに変換' do
+      member = create(:staff_member, family_name_kana: 'ﾘﾝｺﾞ')
+      expect(member.family_name_kana).to eq('リンゴ')
+    end
+  end
 end
