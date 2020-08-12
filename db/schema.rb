@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_232324) do
     t.string "city", null: false
     t.string "address1", null: false
     t.string "address2", null: false
-    t.string "company_name", null: false
+    t.string "company_name", default: "", null: false
     t.string "division_name", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
